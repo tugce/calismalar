@@ -1,6 +1,8 @@
 package eclipsePackage;
 
 import java.util.Random;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 public class SortTest {
 	
@@ -26,11 +28,18 @@ public class SortTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		PropertyConfigurator.configure("/usr/local/apache-log4j-2.4.1/log4j.properties");
+		//PropertyConfigurator.configure("log4j.xml");
+		Logger log = Logger.getLogger(SortTest.class.getName());
+
 		System.out.println(args[0]);
 		if (args.length != 1) {
             System.out.println("usage: sort array-size");
             System.exit(1);
         }
+		
+		log.debug("Hello this is a debug message");
+	      log.info("Hello this is an info message");
         int size = Integer.parseInt(args[0]);
         int test[] = new int[size];
         Random r = new Random();
