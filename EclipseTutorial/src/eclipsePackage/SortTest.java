@@ -2,7 +2,6 @@ package eclipsePackage;
 
 import java.util.Random;
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 
 public class SortTest {
 	
@@ -28,9 +27,7 @@ public class SortTest {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		PropertyConfigurator.configure("/usr/local/apache-log4j-2.4.1/log4j.properties");
-		//PropertyConfigurator.configure("log4j.xml");
-		Logger log = Logger.getLogger(SortTest.class.getName());
+		org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(SortTest.class);
 
 		System.out.println(args[0]);
 		if (args.length != 1) {
@@ -38,8 +35,6 @@ public class SortTest {
             System.exit(1);
         }
 		
-		log.debug("Hello this is a debug message");
-	      log.info("Hello this is an info message");
         int size = Integer.parseInt(args[0]);
         int test[] = new int[size];
         Random r = new Random();
@@ -50,14 +45,18 @@ public class SortTest {
         for (int i = 0; i < size; i++)
             System.out.print(" " + test[i]);
         System.out.println();
-
+        log.trace("Trace Message!");
+        log.debug("Debug Message!");
+        log.info("Info Message!");
+        log.warn("Warn Message!");
+        log.error("Error kjdjdj Message!");
+        log.fatal("Fatal djdnkjndl Message!");
         sort(test, size);
 
         System.out.println("after");
         for (int i = 0; i < size; i++)
             System.out.print(" " + test[i]);
         System.out.println();
-
         System.exit(0);
 
 	}
