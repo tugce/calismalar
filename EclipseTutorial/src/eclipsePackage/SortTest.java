@@ -1,5 +1,9 @@
 package eclipsePackage;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.Random;
 import org.apache.log4j.Logger;
 
@@ -28,14 +32,25 @@ public class SortTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(SortTest.class);
-
+		/*
 		System.out.println(args[0]);
 		if (args.length != 1) {
             System.out.println("usage: sort array-size");
             System.exit(1);
         }
 		
-        int size = Integer.parseInt(args[0]);
+        int size = Integer.parseInt(args[0]);*/
+		Properties prop = new Properties();
+		try {
+			prop.load(new FileInputStream("/home/tugce/workspace/calismalar/EclipseTutorial/src/eclipsePackage/parameters.properties"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		int size = Integer.parseInt(prop.getProperty("sort"));
         int test[] = new int[size];
         Random r = new Random();
 
@@ -49,8 +64,8 @@ public class SortTest {
         log.debug("Debug Message!");
         log.info("Info Message!");
         log.warn("Warn Message!");
-        log.error("Error kjdjdj Message!");
-        log.fatal("Fatal djdnkjndl Message!");
+        log.error("Error Message!");
+        log.fatal("Fatal Message!");
         sort(test, size);
 
         System.out.println("after");
