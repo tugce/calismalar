@@ -9,10 +9,14 @@ import org.apache.log4j.Logger;
 
 public class SortTest {
 	
-	/** Sort the array a[] in ascending order
-     ** using an insertion sort.
+    /**
+     * This i example doc
+     * @param a
+     * @param size
+     * @author Tugce Sirin
      */
-    static void sort(int a[], int size) {
+    public static void sort(int a[], int size) {
+    	
         for (int i = 1; i < size; i++) {
             // a[0..i-1] is sorted
             // insert a[i] in the proper place
